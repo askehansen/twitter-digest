@@ -18,7 +18,8 @@ gem 'figaro'
 gem 'twitter'
 gem 'attr_encrypted'
 gem 'timber'
-# gem 'timber-rails'
+gem 'timber-rails', github: 'timberio/timber-ruby-rails', branch: 'master'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
