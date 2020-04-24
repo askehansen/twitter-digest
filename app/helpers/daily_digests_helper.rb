@@ -1,0 +1,2 @@
+module DailyDigestsHelper
+end

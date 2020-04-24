@@ -1,0 +1,9 @@
+- if signed_in?
+  - @digests.each do |digest|
+    = link_to digest, class: 'flex' do
+      div = l digest.tweeted_on, format: :long
+      .ml-4 = "#{digest.raw_tweets.count} tweets"
+
+- else
+  .p-16.bg-white.rounded.max-w-md.mx-auto.my-16.text-center
+    = link_to 'Sign in with Twitter', sign_in_path

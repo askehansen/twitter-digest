@@ -1,0 +1,10 @@
+= "Hey #{@user.twitter_name} - here´s the top tweets from #{l @digest.tweeted_on, format: :long}"
+= "\n\r" * 2
+- @tweets.each do |tweet|
+  = tweet.user.name
+  = "\n"
+  = tweet.text
+  = "\n\r" * 2
+
+= "\n\r" * 2
+= "Read the rest: #{daily_digest_url(@digest)}"

@@ -1,0 +1,14 @@
+h1.my-16.text-center.text-5xl.font-bold Twitter on #{l @digest.tweeted_on, format: :long}
+.p-16.space-y-6
+  - @tweets.each do |tweet|
+    .bg-white.p-6.rounded
+      .flex.items-center
+        = image_tag tweet.user.profile_image_url_https.to_s, class: 'rounded-full h-6 w-6'
+        .ml-2.font-bold.text-sm = tweet.user.name
+      .mt-4.text-lg
+        = link_to tweet.full_text.gsub("\n", '<br>').html_safe, tweet.url.to_s, target: '_blank'
+
+      .flex.mt-4.space-x-1
+        - tweet.media.take(4).each do |media|
+          .h-32 class="w-1/4"
+            = image_tag media.media_url_https.to_s, class: "object-cover w-full h-full"
