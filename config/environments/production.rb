@@ -105,11 +105,11 @@ Rails.application.configure do
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
   config.action_mailer.default_url_options = { host: 'twitter-digest.herokuapp.com' }
   ActionMailer::Base.smtp_settings = {
-    :user_name => ENV['ELASTIC_EMAIL_USERNAME'],
-    :password => ENV['ELASTIC_EMAIL_PASSWORD'],
+    :user_name => ENV['SENDGRID_USERNAME'],
+    :password => ENV['SENDGRID_PASSWORD'],
     :domain => 'twitter-digest.herokuapp.com',
-    :address => 'smtp.elasticemail.com',
-    :port => 2525,
+    :address => 'smtp.sendgrid.net',
+    :port => 587,
     :authentication => :plain,
     :enable_starttls_auto => true
   }
