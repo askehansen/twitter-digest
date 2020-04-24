@@ -105,11 +105,11 @@ Rails.application.configure do
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
   config.action_mailer.default_url_options = { host: 'twitter-digest.herokuapp.com' }
   ActionMailer::Base.smtp_settings = {
-    :user_name => ENV['AWS_SES_USERNAME'],
-    :password => ENV['AWS_SES_PASSWORD'],
-    :domain => 'twitter-digest.deeco.dk',
-    :address => 'email-smtp.eu-west-1.amazonaws.com',
-    :port => 587,
+    :user_name => ENV['ELASTIC_EMAIL_USERNAME'],
+    :password => ENV['ELASTIC_EMAIL_PASSWORD'],
+    :domain => 'twitter-digest.herokuapp.com',
+    :address => 'smtp.elasticemail.com',
+    :port => 2525,
     :authentication => :plain,
     :enable_starttls_auto => true
   }
