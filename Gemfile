@@ -17,6 +17,8 @@ gem 'clearance'
 gem 'figaro'
 gem 'twitter'
 gem 'attr_encrypted'
+gem 'timber'
+# gem 'timber-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
