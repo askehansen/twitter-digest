@@ -1,7 +1,7 @@
 class DailyDigest < ApplicationRecord
   belongs_to :user
 
-  scope :latest, -> { order(tweeted_on: :desc).limit(30) }
+  scope :latest, -> { order(tweeted_on: :desc) }
 
   def self.should_deliver_now
     self.where(user_id: User.should_deliver_digest_now.map(&:id)).select do |digest|
@@ -11,6 +11,12 @@ class DailyDigest < ApplicationRecord
 
   def tweets=(tweet_list)
     self.raw_tweets = tweet_list.map(&:as_json)
+  end
+
+  def sorted_tweets
+    tweets.sort_by do |tweet|
+      tweet.favorite_count / (self.created_at - tweet.created_at)
+    end.reverse
   end
 
   def tweets

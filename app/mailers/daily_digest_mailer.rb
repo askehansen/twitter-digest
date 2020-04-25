@@ -8,7 +8,7 @@ class DailyDigestMailer < ApplicationMailer
   def yesterdays_tweets(digest)
     @digest = digest
     @user = digest.user
-    @tweets = digest.tweets.sort_by(&:favorite_count).reverse.take(20)
+    @tweets = digest.sorted_tweets
 
     mail to: "#{@user.twitter_name} <#{@user.email}>", subject: "Tweets from #{l digest.tweeted_on, format: :long}"
   end
