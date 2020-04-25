@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>TwitterDigest</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Twitter Digest</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -9,14 +10,14 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body class="bg-gray-200">
+  <body class="font-sans m-6">
     <nav class="flex items-center p-4">
       <% if signed_in? %>
         <%= image_tag current_user.twitter_image, class: "rounded-full h-6 w-6" %>
         <div class="ml-4 font-bold">
-          <%= current_user.twitter_nickname %>
+          @<%= current_user.twitter_nickname %>
         </div>
-        <%= link_to "Sign out", sign_out_path, method: :delete, class: 'ml-4 text-sm text-gray-700' %>
+        <%= link_to "Sign out", sign_out_path, method: :delete, class: 'ml-auto text-sm text-gray-700' %>
       <% else %>
         <%= link_to "Sign in", twitter_sign_in_path, class: 'text-sm text-gray-700' %>
       <% end %>

@@ -1,14 +1,24 @@
-h1.my-16.text-center.text-5xl.font-bold Twitter on #{l @digest.tweeted_on, format: :long}
-.p-16.space-y-6
-  - @tweets.each do |tweet|
-    .bg-white.p-6.rounded
-      .flex.items-center
-        = image_tag tweet.user.profile_image_url_https.to_s, class: 'rounded-full h-6 w-6'
-        .ml-2.font-bold.text-sm = tweet.user.name
-      .mt-4.text-lg
-        = link_to tweet.full_text.gsub("\n", '<br>').html_safe, tweet.url.to_s, target: '_blank'
+.max-w-5xl.mx-auto
 
-      .flex.mt-4.space-x-1
-        - tweet.media.take(4).each do |media|
-          .h-32 class="w-1/4"
-            = image_tag media.media_url_https.to_s, class: "object-cover w-full h-full"
+  .my-32
+    = link_to '←', daily_digests_path, class: 'text-gray-800 text-lg hover:text-yellow-500'
+    h1.text-7xl.font-bold.text-yellow-500.font-serif.tracking-tight
+      = l @digest.tweeted_on, format: '%d %B'
+      span.text-gray-200 = l @digest.tweeted_on, format: ' %Y'
+
+  .flex.flex-wrap.-m-12
+    - @tweets.each_with_index do |tweet, i|
+      .px-12.flex class=tweet_class(tweet, i)
+        = image_tag tweet.user.profile_image_url_https.to_s, class: 'rounded-full h-6 w-6 mt-1 flex-none'
+
+        div.ml-4.flex-grow
+
+          - if tweet.media?
+            .flex.mb-2.space-x-1
+              - tweet.media.take(3).each do |media|
+                div class=tweet_media_class(tweet, i)
+                  = image_tag media.media_url_https.to_s, class: "object-cover w-full h-full"
+
+
+          .text-gray-800.tracking-tight.leading-loose.font-serif class=tweet_text_class(tweet, i) class="hover:text-yellow-500"
+            = link_to tweet_text(tweet), tweet.url.to_s, target: '_blank'
