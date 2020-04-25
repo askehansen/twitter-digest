@@ -8,10 +8,38 @@ class User < ApplicationRecord
 
   has_many :daily_digests, dependent: :destroy
 
+  def self.should_create_digest_now
+    self.all.select do |user|
+      run_time = user.delivery_time - 1.hour
+      minutes_between = (user.local_time - run_time) / 1.minute
+      minutes_between.between?(-15, 15)
+    end
+  end
+
+  def self.should_deliver_digest_now
+    self.all.select do |user|
+      minutes_between = (user.local_time - user.delivery_time) / 1.minute
+      minutes_between.between?(-15, 15)
+    end
+  end
+
+  def local_time
+    Time.use_zone(timezone) do
+      Time.zone.now
+    end
+  end
+
+  def delivery_time
+    Time.use_zone(timezone) do
+      Time.zone.local(local_time.year, local_time.month, local_time.day, delivery_hour.to_i)
+    end
+  end
+
   private
 
   def encryption_key
     ENV['ENCRYPTION_KEY']
   end
+
 
 end

@@ -27,6 +27,8 @@ class SessionsController < ApplicationController
     @user = User.new(session[:new_user])
     @user.email = params[:user][:email]
     @user.password = SecureRandom.hex
+    @user.timezone = "UTC"
+    @user.delivery_hour = "9:00"
     @user.save!
     session[:new_user] = nil
 
