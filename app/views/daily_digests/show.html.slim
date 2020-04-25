@@ -6,9 +6,9 @@
       = l @digest.tweeted_on, format: '%d %B'
       span.text-gray-200 = l @digest.tweeted_on, format: ' %Y'
 
-  .flex.flex-wrap.-m-12
+  section.flex.flex-wrap.-m-12
     - @tweets.each_with_index do |tweet, i|
-      .px-12.flex class=tweet_class(tweet, i)
+      article.px-12.flex class=tweet_class(tweet, i)
         = image_tag tweet.user.profile_image_url_https.to_s, class: 'rounded-full h-6 w-6 mt-1 flex-none'
 
         div.ml-4.flex-grow
