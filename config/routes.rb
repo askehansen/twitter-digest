@@ -4,8 +4,11 @@ Rails.application.routes.draw do
   root to: 'home#index'
 
   resources :daily_digests
+  resource :user
 
-  get '/auth/twitter', as: :twitter_sign_in
+  get '/', to: 'home#index', as: :sign_in
+  get '/auth/twitter', as: :sign_in_twitter
+  post '/sign_out', to: 'sessions#destroy', as: :sign_out
   get '/auth/failure', to: 'sessions#failure'
   get 'auth/add_email', to: 'sessions#add_email'
   post 'auth/update_email', to: 'sessions#update_email'

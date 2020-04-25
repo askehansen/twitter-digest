@@ -1,0 +1,18 @@
+.max-w-5xl.mx-auto.my-32
+
+  = link_to '←', daily_digests_path, class: 'text-lg hover:text-yellow-500'
+  h1.text-7xl.font-bold.text-yellow-500.font-serif.tracking-tight.max-w-xl.leading-tight Your settings
+  = form_with model: @user, method: :patch, class: 'mt-12 max-w-xs' do |f|
+    .my-4
+      label.font-bold Email address
+      .mt-2 = f.text_field :email, class: "form-input w-full"
+    .my-4
+      label.font-bold Time of delivery
+      .mt-2 = f.select :delivery_hour, @hours, {}, class: "form-select w-full"
+    .my-4
+      label.font-bold Timezone
+      .mt-2 = f.select :timezone, @timezones, {}, class: "form-select w-full"
+    button.text-xl.font-bold.underline.mt-4.text-color-strong type="submit" Save
+
+  .border-2.border-dashed.border-color.p-8.rounded.mt-24
+    = link_to 'Delete me and my data', user_path, method: :delete, 'data-confirm': "Are you sure you want to delete your account?", class: 'button font-bold underline'

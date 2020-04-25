@@ -3,6 +3,6 @@
   h1.text-7xl.font-bold.text-yellow-500.font-serif.my-32.tracking-tight Your digests
 
   - @digests.each do |digest|
-    = link_to digest, class: 'flex font-serif text-xl my-6 text-color hover:text-yellow-500' do
+    = link_to digest, class: 'flex font-serif text-xl my-6 hover:text-yellow-500' do
       div = l digest.tweeted_on, format: :long
       .ml-4 = "#{digest.raw_tweets.count} tweets"

@@ -1,7 +1,7 @@
 class DailyDigestsController < ApplicationController
+  before_action :require_login, except: :show
 
   def index
-    require_login
     @digests = current_user.daily_digests.latest
   end
 

@@ -14,6 +14,7 @@ Timber.config.integrations.rack.user_context.custom_user_hash = lambda do |rack_
     {
       id: user.id,
       email: user.email,
+      timezone: user.timezone,
     }
   else
     nil

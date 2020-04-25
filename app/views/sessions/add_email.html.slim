@@ -1,6 +1,6 @@
 .max-w-5xl.mx-auto.my-32
   h1.text-7xl.font-bold.text-yellow-500.font-serif.tracking-tight.max-w-xl.leading-tight Welcome #{@user.twitter_name}
-  .mt-4.text-xl.text-color We just need your email so we can send your digest
+  .mt-4.text-xl We just need your email so we can send your digest
   = form_with url: auth_update_email_path do
     .flex.mt-12.items-center
     = text_field :user, :email, class: "form-input", placeholder: 'Your email address'

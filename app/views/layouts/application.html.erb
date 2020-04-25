@@ -10,15 +10,14 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body class="font-sans m-6 background-color">
+  <body class="font-sans m-6 background-color text-color">
     <nav class="flex items-center flex-row-reverse p-4 space-x-reverse space-x-4">
       <% if signed_in? %>
-        <%= image_tag current_user.twitter_image, class: "rounded-full h-6 w-6" %>
-        <%= link_to "Sign out", sign_out_path, method: :delete, class: 'text-xs font-bold underline text-color-strong' %>
+        <%= link_to image_tag(current_user.twitter_image, class: "rounded-full h-6 w-6"), edit_user_path %>
+        <%= link_to "Sign out", sign_out_path, method: :post, class: 'text-xs font-bold underline text-color-strong' %>
       <% else %>
-        <%= link_to "Sign in", twitter_sign_in_path, class: 'text-xs font-bold underline text-color-strong' %>
+        <%= link_to "Sign in", sign_in_twitter_path, class: 'text-xs font-bold underline text-color-strong' %>
       <% end %>
-
     </nav>
 
     <%= yield %>

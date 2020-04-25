@@ -1,7 +1,7 @@
 .max-w-5xl.mx-auto
 
   .my-32
-    = link_to '←', daily_digests_path, class: 'text-color text-lg hover:text-yellow-500'
+    = link_to '←', daily_digests_path, class: 'text-lg hover:text-yellow-500'
     h1.text-7xl.font-bold.text-yellow-500.font-serif.tracking-tight
       = l @digest.tweeted_on, format: '%d %B'
       span.text-color-weak = l @digest.tweeted_on, format: ' %Y'
@@ -20,5 +20,5 @@
                   = image_tag media.media_url_https.to_s, class: "object-cover w-full h-full"
 
 
-          .text-color.tracking-tight.leading-loose.font-serif class=tweet_text_class(tweet, i) class="hover:text-yellow-500"
+          .tracking-tight.leading-loose.font-serif class=tweet_text_class(tweet, i) class="hover:text-yellow-500"
             = link_to tweet_text(tweet), tweet.url.to_s, target: '_blank'

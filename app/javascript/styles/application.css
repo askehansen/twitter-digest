@@ -5,6 +5,23 @@
 @import "sapien";
 
 
+.svg-icon {
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: -3px;
+}
+
+.svg-icon-current-color * {
+  fill: currentColor;
+}
+
+.svg-icon-not-found {
+  width: 10px;
+  height: 10px;
+  background: black;
+}
+
+
 .background-color {
   @apply bg-white;
 }
@@ -16,6 +33,19 @@
 }
 .text-color-weak {
   @apply text-gray-200;
+}
+.form-input {
+}
+.form-select {
+}
+.theme-toggle-light {
+  @apply block;
+}
+.theme-toggle-dark {
+  @apply hidden;
+}
+.border-color {
+  @apply border-gray-300;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -33,5 +63,17 @@
   }
   .form-input {
     @apply bg-gray-900 border-gray-600 text-white;
+  }
+  .form-select {
+    @apply bg-gray-900 border-gray-600 text-white;
+  }
+  .theme-toggle-light {
+    @apply hidden;
+  }
+  .theme-toggle-dark {
+    @apply block;
+  }
+  .border-color {
+    @apply border-gray-800;
   }
 }

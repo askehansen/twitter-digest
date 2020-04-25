@@ -6,12 +6,17 @@ class SessionsController < ApplicationController
 
     if @user
       sign_in(@user)
-      redirect_to '/'
+      redirect_to daily_digests_path
     else
       session[:new_user] = User.new(twitter_data)
       redirect_to auth_add_email_path
     end
 
+  end
+
+  def destroy
+    sign_out
+    redirect_to '/'
   end
 
   def add_email
@@ -26,7 +31,7 @@ class SessionsController < ApplicationController
     session[:new_user] = nil
 
     sign_in(@user)
-    redirect_to "/"
+    redirect_to daily_digests_path
   end
 
 
