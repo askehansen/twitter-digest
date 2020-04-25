@@ -3,3 +3,35 @@
 @import "tailwindcss/utilities";
 
 @import "sapien";
+
+
+.background-color {
+  @apply bg-white;
+}
+.text-color {
+  @apply text-gray-800;
+}
+.text-color-strong {
+  @apply text-black;
+}
+.text-color-weak {
+  @apply text-gray-200;
+}
+
+@media (prefers-color-scheme: dark) {
+  .background-color {
+    @apply bg-gray-900;
+  }
+  .text-color {
+    @apply text-gray-300;
+  }
+  .text-color-strong {
+    @apply text-white;
+  }
+  .text-color-weak {
+    @apply text-gray-800;
+  }
+  .form-input {
+    @apply bg-gray-900 border-gray-600 text-white;
+  }
+}

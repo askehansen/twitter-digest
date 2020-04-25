@@ -10,24 +10,18 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body class="font-sans m-6">
-    <nav class="flex items-center p-4">
+  <body class="font-sans m-6 background-color">
+    <nav class="flex items-center flex-row-reverse p-4 space-x-reverse space-x-4">
       <% if signed_in? %>
         <%= image_tag current_user.twitter_image, class: "rounded-full h-6 w-6" %>
-        <div class="ml-4 font-bold">
-          @<%= current_user.twitter_nickname %>
-        </div>
-        <%= link_to "Sign out", sign_out_path, method: :delete, class: 'ml-auto text-sm text-gray-700' %>
+        <%= link_to "Sign out", sign_out_path, method: :delete, class: 'text-xs font-bold underline text-color-strong' %>
       <% else %>
-        <%= link_to "Sign in", twitter_sign_in_path, class: 'text-sm text-gray-700' %>
+        <%= link_to "Sign in", twitter_sign_in_path, class: 'text-xs font-bold underline text-color-strong' %>
       <% end %>
 
     </nav>
 
     <%= yield %>
-
-
-    
 
   </body>
 </html>
