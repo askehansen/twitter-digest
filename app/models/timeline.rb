@@ -7,11 +7,11 @@ class Timeline
 
   def tweets
     Rails.logger.info("Fetching timeline initial")
-    @items = client.home_timeline(count: 200)
+    @items = client.home_timeline(count: 200, tweet_mode: "extended")
 
     while @items.last.created_at > @time_frame.first
       Rails.logger.info("Fetching timeline before #{@items.last.created_at}")
-      @items = @items + client.home_timeline(count: 200, max_id: @items.last.id)
+      @items = @items + client.home_timeline(count: 200, max_id: @items.last.id, tweet_mode: "extended")
     end
 
     @items.select do |item|
