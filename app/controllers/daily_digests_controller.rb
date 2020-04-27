@@ -3,10 +3,10 @@ class DailyDigestsController < ApplicationController
 
   def new
     if @digest = current_user.daily_digests.latest.first
-      # redirect_to @digest
+      redirect_to @digest
     else
       @digest = DailyDigest.create(user: current_user)
-      # CreateNewDigestJob.perform_later(@digest)
+      CreateNewDigestJob.perform_later(@digest)
     end
   end
 
