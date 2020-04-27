@@ -1,4 +1,4 @@
-class CreateNewDigestJob < ApplicationJob
+class PrepareDigestJob < ApplicationJob
   queue_as :default
 
   def perform(digest, yesterday: nil)
@@ -10,6 +10,6 @@ class CreateNewDigestJob < ApplicationJob
 
     digest.save!
 
-    NewDigestChannel.broadcast_to(digest.user, status: "created")
+    NewDigestChannel.broadcast_to(digest.user, status: "ready")
   end
 end

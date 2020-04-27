@@ -5,7 +5,7 @@ namespace :daily_digests do
     User.should_create_digest_now.each do |user|
       Timber.with_context(user: { id: user.id, email: user.email, timezone: user.timezone, delivery_hour: user.delivery_hour }) do
         Rails.logger.info("Creating daily digest")
-        CreateNewDigestJob.perform_later(digest.create(user))
+        PrepareDigestJob.perform_later(digest.create(user))
         Rails.logger.info("Created daily digest", digest_created: { id: digest.id })
       end
     end

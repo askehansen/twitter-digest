@@ -16,7 +16,7 @@ export default class extends Controller {
       },
 
       received: (data) => {
-        if (data.status === "created") {
+        if (data.status === "ready") {
           Turbolinks.visit(this.element.dataset.digestPath)
         }
         // Called when there's incoming data on the websocket for this channel

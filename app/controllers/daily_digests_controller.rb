@@ -6,7 +6,7 @@ class DailyDigestsController < ApplicationController
       redirect_to @digest
     else
       @digest = DailyDigest.create(user: current_user)
-      CreateNewDigestJob.perform_later(@digest)
+      PrepareDigestJob.perform_later(@digest)
     end
   end
 

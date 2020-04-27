@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class CreateNewDigestJobTest < ActiveJob::TestCase
+class PrepareDigestJobTest < ActiveJob::TestCase
   # test "the truth" do
   #   assert true
   # end
