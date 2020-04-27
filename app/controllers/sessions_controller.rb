@@ -33,7 +33,7 @@ class SessionsController < ApplicationController
     session[:new_user] = nil
 
     sign_in(@user)
-    redirect_to daily_digests_path
+    redirect_to new_daily_digest_path
   end
 
 
