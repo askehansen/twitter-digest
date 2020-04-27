@@ -2,8 +2,8 @@
 
   .my-32 data-controller="new-digest" data-digest-path=daily_digest_path(@digest)
     = link_to '←', daily_digests_path, class: 'text-lg hover:text-yellow-500'
-    h1.text-7xl.font-bold.text-yellow-500.font-serif.tracking-tight Yesterday's Tweets
+    h1.text-7xl.font-bold.text-yellow-500.font-serif.tracking-tight Hang on
 
     .mt-12.items-center.max-w-lg class="sm:flex"
-      lottie-player.flex-none src=asset_path("19185-preloader.json") background="transparent" speed="1" style="width: 300px; height: 300px;" loop="" autoplay=""
-      .text-2xl.italic Hang on while we prepared your first digest...
+      .flex-none.w-64.h-64 data-controller="lottie-player" data-src=asset_path("19185-preloader.json")
+      .text-2xl.italic We are preparing your first digest from yesterday`s tweets...
