@@ -1,4 +1,5 @@
 class DailyDigest < ApplicationRecord
+  include Hashid::Rails
   belongs_to :user
 
   scope :latest, -> { order(tweeted_on: :desc) }
