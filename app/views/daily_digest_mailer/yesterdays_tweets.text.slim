@@ -1,4 +1,4 @@
-= "Hey #{@user.twitter_name} - here´s the top tweets from #{l @digest.tweeted_on, format: :long}"
+= "Hey @#{@user.twitter_nickname} - here are the top tweets from #{l @digest.tweeted_on, format: :long}"
 = "\n\r" * 2
 - @tweets.each do |tweet|
   = tweet.user.name
