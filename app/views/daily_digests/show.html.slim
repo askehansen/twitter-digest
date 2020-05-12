@@ -7,18 +7,4 @@
       span.text-color-weak = l @digest.tweeted_on, format: ' %Y'
 
   section.flex.flex-wrap.-m-12
-    - @tweets.each_with_index do |tweet, i|
-      article.px-12.flex class=tweet_class(tweet, i)
-        = image_tag tweet.user.profile_image_url_https.to_s, class: 'rounded-full h-6 w-6 mt-1 flex-none'
-
-        div.ml-4.flex-grow
-
-          - if tweet.media?
-            .flex.mb-2.space-x-1
-              - tweet.media.take(3).each do |media|
-                div class=tweet_media_class(tweet, i)
-                  = image_tag media.media_url_https.to_s, class: "object-cover w-full h-full"
-
-
-          .tracking-tight.leading-loose.font-serif class=tweet_text_class(tweet, i) class="hover:text-yellow-500"
-            = link_to tweet_text(tweet), tweet.url.to_s, target: '_blank'
+    = render TweetComponent.with_collection(@tweets)

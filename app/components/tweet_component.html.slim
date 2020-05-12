@@ -1,0 +1,14 @@
+article.px-12.flex class=container_class
+  = image_tag @tweet.user.profile_image_url_https.to_s, class: 'rounded-full h-6 w-6 mt-1 flex-none'
+
+  div.ml-4.flex-grow
+
+    - if @tweet.media?
+      .flex.mb-2.space-x-1
+        - @tweet.media.take(3).each do |media|
+          div class=media_class
+            = image_tag media.media_url_https.to_s, class: "object-cover w-full h-full"
+
+
+    .tracking-tight.leading-loose.font-serif class=text_class class="hover:text-yellow-500"
+      = link_to text, @tweet.url.to_s, target: '_blank'

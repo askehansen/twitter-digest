@@ -23,6 +23,7 @@ gem "sentry-raven"
 gem "inline_svg"
 gem "sucker_punch"
 gem "hashid-rails"
+gem "view_component"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
