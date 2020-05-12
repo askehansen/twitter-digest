@@ -1,7 +1,6 @@
 module.exports = {
   plugins: [
     require('postcss-import'),
-    require('autoprefixer'),
     require('postcss-cssnext'),
     require('tailwindcss'),
     require('postcss-flexbugs-fixes'),
