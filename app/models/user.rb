@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   include Clearance::User
+  TIME_PADDING = [-15, 15]
 
   attr_encrypted :twitter_consumer_key, key: :encryption_key
   attr_encrypted :twitter_consumer_secret, key: :encryption_key
@@ -12,14 +13,14 @@ class User < ApplicationRecord
     self.all.select do |user|
       run_time = user.delivery_time - 1.hour
       minutes_between = (user.local_time - run_time) / 1.minute
-      minutes_between.between?(-15, 15)
+      minutes_between.between?(*TIME_PADDING)
     end
   end
 
   def self.should_deliver_digest_now
     self.all.select do |user|
       minutes_between = (user.local_time - user.delivery_time) / 1.minute
-      minutes_between.between?(-15, 15)
+      minutes_between.between?(*TIME_PADDING)
     end
   end
 
