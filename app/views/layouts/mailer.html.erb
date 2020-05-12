@@ -2,18 +2,19 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <% if Rails.env.production? %>
-      <%= stylesheet_pack_tag 'application' %>
-    <% else %>
-      <%= javascript_pack_tag 'application' %>
-    <% end %>
+    <%= stylesheet_pack_tag 'application' %>
+    <style>
+      .max-width {
+        width: 500px;
+      }
+    </style>
   </head>
 
   <body>
     <table class="w-full font-serif text gray-900" cellpadding="0" cellspacing="0">
       <tr>
         <td class="px-4 sm:px-12"></td>
-        <td class="py-4 sm:py-12 max-w-xs"><%= yield %></td>
+        <td class="py-4 sm:py-12 max-width"><%= yield %></td>
         <td class="px-4 sm:px-12"></td>
       </tr>
     </table>
