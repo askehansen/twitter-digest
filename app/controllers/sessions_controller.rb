@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       redirect_to daily_digests_path
     else
       session[:new_user] = User.new(twitter_data)
-      redirect_to auth_add_email_path
+      redirect_to new_users_path
     end
 
   end
@@ -18,24 +18,6 @@ class SessionsController < ApplicationController
     sign_out
     redirect_to '/'
   end
-
-  def add_email
-    @user = User.new(session[:new_user])
-  end
-
-  def update_email
-    @user = User.new(session[:new_user])
-    @user.email = params[:user][:email]
-    @user.password = SecureRandom.hex
-    @user.timezone = "UTC"
-    @user.delivery_hour = "9:00"
-    @user.save!
-    session[:new_user] = nil
-
-    sign_in(@user)
-    redirect_to new_daily_digest_path
-  end
-
 
   private
 

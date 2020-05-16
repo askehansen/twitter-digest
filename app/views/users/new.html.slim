@@ -1,0 +1,8 @@
+.max-w-5xl.mx-auto.my-32
+  h1.text-7xl.font-bold.text-yellow-500.font-serif.tracking-tight.max-w-xl.leading-tight Welcome @#{@user.twitter_nickname}
+  .mt-4.text-xl We just need your email so we can send your digest
+  = form_with model: @user do |f|
+    = f.hidden_field :timezone, "data-controller": "detect-timezone", "data-target": "detect-timezone.input"
+    .flex.mt-12.items-center
+    = f.text_field :email, class: "form-input", placeholder: 'Your email address'
+    button.text-xl.font-bold.underline.ml-4.text-color-strong type="submit" Continue

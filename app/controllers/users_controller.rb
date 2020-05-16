@@ -1,5 +1,29 @@
 class UsersController < ApplicationController
-  before_action :require_login
+  before_action :require_login, except: [:new, :create]
+
+  class NoUserSessionError < StandardError
+  end
+
+  def new
+    raise NoUserSessionError if session[:new_user].nil?
+
+    @user = User.new(session[:new_user])
+  end
+
+  def create
+    raise NoUserSessionError if session[:new_user].nil?
+    
+    @user = User.new(session[:new_user])
+    @user.email = params[:user][:email]
+    @user.password = SecureRandom.hex
+    @user.timezone = FindTimezone.find(params[:user][:timezone])&.name
+    @user.delivery_hour = "9:00"
+    @user.save!
+    session[:new_user] = nil
+
+    sign_in(@user)
+    redirect_to new_daily_digest_path
+  end
 
   def edit
     @user = current_user
@@ -27,10 +51,10 @@ class UsersController < ApplicationController
   private
 
   def timezones
-    entries = YAML.load(Rails.root.join("data", "timezones.yml").read)
+    groups = ActiveSupport::TimeZone.all.group_by(&:formatted_offset)
 
-    entries.map do |entry|
-      [entry["group"], entry["zones"]]
+    groups.map do |offest, zones|
+      [offest, zones.map(&:name)]
     end
   end
 
