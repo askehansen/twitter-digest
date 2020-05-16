@@ -47,6 +47,9 @@
 .border-color {
   @apply border-gray-300;
 }
+.border-background-color {
+  @apply border-white;
+}
 
 @media (prefers-color-scheme: dark) {
   .background-color {
@@ -75,6 +78,9 @@
   }
   .border-color {
     @apply border-gray-800;
+  }
+  .border-background-color {
+    @apply border-gray-900;
   }
 }
 

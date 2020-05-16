@@ -18,7 +18,9 @@
   <body class="font-sans m-6 background-color text-color">
     <nav class="flex items-center flex-row-reverse p-4 space-x-reverse space-x-4">
       <% if signed_in? %>
-        <%= link_to image_tag(current_user.twitter_image, class: "rounded-full h-6 w-6"), edit_users_path %>
+        <%= link_to edit_users_path, class: 'rounded-full border-2 border-opacity-0 border-yellow-500 hover:border-opacity-100 transition ease-out duration-100' do %>
+          <%= image_tag(current_user.twitter_image, class: "rounded-full h-8 w-8 border-2 border-background-color") %>
+        <% end %>
         <%= link_to "Sign out", sign_out_path, method: :post, class: 'text-xs font-bold underline text-color-strong' %>
       <% else %>
         <%= link_to "Sign in", sign_in_twitter_path, class: 'text-xs font-bold underline text-color-strong' %>
