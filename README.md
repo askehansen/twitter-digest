@@ -1,13 +1,18 @@
 # README
 
-## Twitter developer app
+Every morning you get an email with the top tweets from yesterday. On the website you can further view all yesterday's tweets, sorted by popularity.
+It's Twitter in pure and focused form that doesn't suck you into a rabbitwhole of endless comments and threads.
+
+## Prerequisite
+
+### Twitter developer app
 First create a twitter app here: https://developer.twitter.com/en/apps
 
 Configure the callback url to `https://[your-hostname]/auth/twitter/callback`
 
 Note the *API key* and *API secret key*.
 
-## Encryption string
+### Encryption string
 Consumer keys for signed up twitter users are encrypted before stored in the database using a 256 bit encryption string (https://github.com/attr-encrypted/attr_encrypted#usage).
 
 You need to generate this string and you can use the following ruby code:
