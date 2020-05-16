@@ -37,6 +37,8 @@ ENCRYPTION_KEY: [256 bit encrypting string]
 
 `$ bundle install`
 
+`$ rm config/credentials.yml.enc`
+
 `$ rails credentials:edit`
 
 `$ rails db:setup`
