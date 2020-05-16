@@ -37,7 +37,7 @@ ENCRYPTION_KEY: [256 bit encrypting string]
 
 `$ bundle install`
 
-`$ rails secrets:setup`
+`$ rails credentials:edit`
 
 `$ rails db:setup`
 
