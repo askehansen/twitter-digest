@@ -43,6 +43,14 @@ class TweetComponent < ViewComponent::Base
     "#{height} #{width}"
   end
 
+  def url
+    if @tweet.urls.count == 1
+      @tweet.urls.first.expanded_url.to_s
+    else
+      @tweet.url.to_s
+    end
+  end
+
   def text_class
     if @tweet.media?
       'text-sm'
