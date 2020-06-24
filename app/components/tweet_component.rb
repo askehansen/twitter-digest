@@ -1,14 +1,17 @@
 class TweetComponent < ViewComponent::Base
-  def initialize(tweet:, tweet_counter: 0)
+  def initialize(tweet:, frontpage:, tweet_counter: 0)
     @tweet = tweet
+    @frontpage = frontpage
     @counter = tweet_counter
   end
 
   def mega?
+    return false unless @frontpage
     @counter <= 10
   end
 
   def top?
+    return false unless @frontpage
     @counter <= 20
   end
 

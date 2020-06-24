@@ -16,6 +16,6 @@ class DailyDigestsController < ApplicationController
 
   def show
     @digest = DailyDigest.find_by_hashid(params[:id])
-    @tweets = @digest.sorted_tweets
+    set_page_and_extract_portion_from @digest.sorted_tweets, per_page: 40
   end
 end

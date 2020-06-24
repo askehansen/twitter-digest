@@ -5,6 +5,14 @@
     h1.text-7xl.font-bold.text-yellow-500.font-serif.tracking-tight
       = l @digest.tweeted_on, format: '%B %d'
       span.text-color-weak = l @digest.tweeted_on, format: ' %Y'
+      - unless @page.first?
+        .text.text-5xl.text-color-weak.font-bold.font-serif = "/#{@page.number}"
+
+
+
 
   section.flex.flex-wrap.-m-12
-    = render TweetComponent.with_collection(@tweets)
+    = render TweetComponent.with_collection(@page.records, frontpage: @page.first?)
+
+  .my-24
+    = link_to "Read more", daily_digest_path(@digest, page: @page.next_param), class: 'py-4 text-lg underline font-bold text-color-strong' unless @page.last?

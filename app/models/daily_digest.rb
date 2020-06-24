@@ -15,9 +15,11 @@ class DailyDigest < ApplicationRecord
   end
 
   def sorted_tweets
-    tweets.sort_by do |tweet|
+    list = tweets.sort_by do |tweet|
       tweet.favorite_count / (self.created_at - tweet.created_at)
     end.reverse
+
+    Tweets.new(list)
   end
 
   def tweets
