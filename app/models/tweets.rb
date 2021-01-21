@@ -22,6 +22,10 @@ class Tweets
     @tweets.count
   end
 
+  def take(val)
+    @tweets.take(val)
+  end
+
   def to_ary
     from = @offset
     to = @offset + @limit
