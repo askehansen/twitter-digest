@@ -105,10 +105,10 @@ Rails.application.configure do
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
   config.action_mailer.default_url_options = { host: 'twitter-digest.deeco.dk' }
   ActionMailer::Base.smtp_settings = {
-    :user_name => ENV['CLOUDMAILIN_USERNAME'],
-    :password => ENV['CLOUDMAILIN_PASSWORD'],
+    :user_name => ENV['SMTP_USERNAME'],
+    :password => ENV['SMTP_PASSWORD'],
     :domain => 'twitter-digest.deeco.dk',
-    :address => 'smtp.cloudmta.net',
+    :address => ENV['SMTP_HOST'],
     :port => 587,
     :authentication => :plain,
     :enable_starttls_auto => true
