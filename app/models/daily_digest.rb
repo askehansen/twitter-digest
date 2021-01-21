@@ -2,7 +2,7 @@ class DailyDigest < ApplicationRecord
   include Hashid::Rails
   belongs_to :user
 
-  scope :latest, -> { order(tweeted_on: :desc) }
+  scope :latest, -> { order(tweeted_on: :desc).limit(30) }
 
   def self.should_deliver_now
     self.where(user_id: User.should_deliver_digest_now.map(&:id)).select do |digest|
