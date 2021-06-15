@@ -23,7 +23,7 @@ class DailyDigest < ApplicationRecord
   end
 
   def tweets
-    @_tweets ||= raw_tweets.map do |data|
+    @_tweets ||= raw_tweets.to_a.map do |data|
       Twitter::Tweet.new(ActiveSupport::HashWithIndifferentAccess.new(data))
     end
   end
