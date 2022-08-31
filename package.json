@@ -2,23 +2,22 @@
   "name": "twitter_digest",
   "private": true,
   "dependencies": {
+    "@hotwired/stimulus": "^3.0.1",
+    "@hotwired/turbo-rails": "^7.1.1",
     "@rails/actioncable": "^6.0.0",
-    "@rails/activestorage": "^6.0.0",
-    "@rails/ujs": "^6.0.0",
-    "@rails/webpacker": "4.2.2",
+    "@rails/ujs": "^7.0.3-1",
     "@tailwindcss/custom-forms": "^0.2.1",
+    "esbuild": "^0.15.6",
     "jstimezonedetect": "^1.0.7",
     "lottie-web": "^5.6.8",
-    "postcss-cssnext": "^3.1.0",
-    "stimulus": "^1.1.1",
-    "tailwindcss": "^1.4.5",
-    "turbolinks": "^5.2.0",
-    "vue": "^2.6.11",
-    "vue-loader": "^15.9.1",
-    "vue-template-compiler": "^2.6.11"
+    "postcss": "^8.4.16",
+    "postcss-cli": "^10.0.0",
+    "postcss-cssnext": "^3.1.1",
+    "postcss-import": "^15.0.0",
+    "tailwindcss": "^1.4.5"
   },
-  "version": "0.1.0",
-  "devDependencies": {
-    "webpack-dev-server": "^3.10.3"
+  "scripts": {
+    "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds",
+    "build:css": "postcss ./app/assets/stylesheets/application.postcss.css -o ./app/assets/builds/application.css"
   }
 }

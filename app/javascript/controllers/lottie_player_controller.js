@@ -1,4 +1,4 @@
-import { Controller } from "stimulus"
+import { Controller } from "@hotwired/stimulus"
 import lottie from "lottie-web"
 
 export default class extends Controller {
