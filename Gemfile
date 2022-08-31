@@ -55,5 +55,7 @@ gem "omniauth-rails_csrf_protection", "~> 1.0"
 
 gem "clockwork", "~> 3.0"
 gem 'net-smtp', require: false
+gem 'net-pop', require: false
+gem 'net-imap', require: false
 
 gem "digest", "~> 3.1"
