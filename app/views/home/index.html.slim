@@ -1,3 +1,5 @@
 .max-w-5xl.mx-auto.my-32
   h1.text-7xl.font-bold.text-yellow-500.font-serif.tracking-tight.max-w-xl.leading-tight Get your Twitter digests
-  .mt-8.underline = link_to 'Sign in with Twitter', sign_in_twitter_path, class: 'text-color-strong text-xl font-bold'
+  .mt-8
+    = form_tag(sign_in_twitter_path, method: 'post', data: { turbo: false }) do
+      button.text-color-strong.text-xl.font-bold.underline type="submit" Sign in with Twitter

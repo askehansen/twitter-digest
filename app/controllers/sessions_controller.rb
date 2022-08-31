@@ -1,5 +1,4 @@
 class SessionsController < ApplicationController
-  skip_before_action :verify_authenticity_token
 
   def create
     @user = User.find_by(twitter_uid: twitter_data["twitter_uid"])

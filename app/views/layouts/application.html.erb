@@ -23,7 +23,9 @@
         <% end %>
         <%= link_to "Sign out", sign_out_path, method: :post, class: 'text-xs font-bold underline text-color-strong' %>
       <% else %>
-        <%= link_to "Sign in", sign_in_twitter_path, class: 'text-xs font-bold underline text-color-strong' %>
+        <%= form_tag(sign_in_twitter_path, method: 'post', data: { turbo: false }) do %>
+          <button class="text-xs font-bold underline text-color-strong" type="submit">Sign in</button>
+        <% end %>
       <% end %>
     </nav>
 
