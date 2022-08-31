@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.3'
+ruby '3.1.0'
 
 gem 'rails', '~> 6.0.2', '>= 6.0.2.1'
 gem 'pg', '>= 0.18', '< 2.0'
@@ -54,3 +54,6 @@ gem "geared_pagination", "~> 1.0"
 gem "omniauth-rails_csrf_protection", "~> 1.0"
 
 gem "clockwork", "~> 3.0"
+gem 'net-smtp', require: false
+
+gem "digest", "~> 3.1"

@@ -80,7 +80,7 @@ GEM
     buftok (0.2.0)
     builder (3.2.4)
     byebug (11.1.3)
-    capybara (3.36.0)
+    capybara (3.37.1)
       addressable
       matrix
       mini_mime (>= 0.1.3)
@@ -108,6 +108,7 @@ GEM
       addressable
     cssbundling-rails (1.1.1)
       railties (>= 6.0.0)
+    digest (3.1.0)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
     email_validator (2.2.3)
@@ -154,10 +155,9 @@ GEM
       nokogiri (>= 1.6)
     jsbundling-rails (1.0.3)
       railties (>= 6.0.0)
-    listen (3.1.5)
+    listen (3.0.8)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
-      ruby_dep (~> 1.2)
     loofah (2.18.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -169,17 +169,24 @@ GEM
       thread_safe (~> 0.3, >= 0.3.1)
     method_source (1.0.0)
     mini_mime (1.1.2)
-    mini_portile2 (2.8.0)
     minitest (5.16.3)
     msgpack (1.5.6)
     multipart-post (2.2.3)
     naught (1.1.0)
+    net-protocol (0.1.3)
+      timeout
+    net-smtp (0.3.1)
+      digest
+      net-protocol
+      timeout
     nio4r (2.5.8)
-    nokogiri (1.13.8)
-      mini_portile2 (~> 2.8.0)
+    nokogiri (1.13.8-arm64-darwin)
       racc (~> 1.4)
-    oauth (0.6.2)
+    oauth (1.1.0)
+      oauth-tty (~> 1.0, >= 1.0.1)
       snaky_hash (~> 2.0)
+      version_gem (~> 1.1)
+    oauth-tty (1.0.2)
       version_gem (~> 1.1)
     omniauth (2.1.0)
       hashie (>= 3.4.6)
@@ -195,7 +202,7 @@ GEM
       omniauth-oauth (~> 1.1)
       rack
     pg (1.4.3)
-    premailer (1.15.0)
+    premailer (1.16.0)
       addressable
       css_parser (>= 1.6.0)
       htmlentities (>= 4.0.0)
@@ -249,12 +256,12 @@ GEM
     regexp_parser (2.5.0)
     rexml (3.2.5)
     ruby2_keywords (0.0.5)
-    ruby_dep (1.5.0)
     rubyzip (2.3.2)
-    selenium-webdriver (4.1.0)
+    selenium-webdriver (4.4.0)
       childprocess (>= 0.5, < 5.0)
       rexml (~> 3.2, >= 3.2.5)
-      rubyzip (>= 1.2.2)
+      rubyzip (>= 1.2.2, < 3.0)
+      websocket (~> 1.0)
     sentry-raven (3.1.2)
       faraday (>= 1.0)
     simple_oauth (0.3.1)
@@ -286,6 +293,7 @@ GEM
     timber-rack (1.0.1)
       rack (>= 1.2, < 3.0)
       timber (~> 3.0)
+    timeout (0.3.0)
     turbolinks (5.2.1)
       turbolinks-source (~> 5.2)
     turbolinks-source (5.2.0)
@@ -319,6 +327,7 @@ GEM
       nokogiri (~> 1.6)
       rubyzip (>= 1.3.0)
       selenium-webdriver (~> 4.0)
+    websocket (1.2.9)
     websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
@@ -327,7 +336,7 @@ GEM
     zeitwerk (2.6.0)
 
 PLATFORMS
-  ruby
+  arm64-darwin-21
 
 DEPENDENCIES
   attr_encrypted
@@ -337,12 +346,14 @@ DEPENDENCIES
   clearance
   clockwork (~> 3.0)
   cssbundling-rails
+  digest (~> 3.1)
   figaro
   geared_pagination (~> 1.0)
   hashid-rails
   inline_svg
   jsbundling-rails
   listen (>= 3.0.5, < 3.2)
+  net-smtp
   omniauth
   omniauth-rails_csrf_protection (~> 1.0)
   omniauth-twitter
@@ -365,7 +376,7 @@ DEPENDENCIES
   webdrivers
 
 RUBY VERSION
-   ruby 2.6.3p62
+   ruby 3.1.0p0
 
 BUNDLED WITH
-   2.0.2
+   2.3.3
