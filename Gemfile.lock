@@ -98,6 +98,9 @@ GEM
       bcrypt (>= 3.1.1)
       email_validator (~> 2.0)
       railties (>= 5.0)
+    clockwork (3.0.0)
+      activesupport
+      tzinfo
     coderay (1.1.3)
     concurrent-ruby (1.1.10)
     crass (1.0.6)
@@ -332,6 +335,7 @@ DEPENDENCIES
   byebug
   capybara (>= 2.15)
   clearance
+  clockwork (~> 3.0)
   cssbundling-rails
   figaro
   geared_pagination (~> 1.0)
